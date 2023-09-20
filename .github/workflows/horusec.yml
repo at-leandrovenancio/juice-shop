@@ -1,0 +1,25 @@
+name: 📦🚀 Horusec Scan
+
+#será executada sempre que houver uma nova atualização na branch principal(main ou master)
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  horusec-security:
+    name: horusec-security
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with: # Necessário quando habilitado o autores de commit
+        fetch-depth: 0
+    - name: Running Horusec Security
+      id: run-horusec
+      run: |
+        curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
+        horusec start -p="./" -a ${{ secrets.HORUSEC_API_TOKEN }} -u ${{ secrets.HORUSEC_URL_API }} -e="true" -G="true" 
