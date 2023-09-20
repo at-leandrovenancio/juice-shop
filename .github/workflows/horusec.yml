@@ -17,7 +17,7 @@ jobs:
     - name: Install Git
       run: |
         sudo apt-get update -q
-        sudo apt-get install git -y
+        sudo apt-get install git docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin ca-certificates curl gnupg -y
     - name: Checkout
       uses: actions/checkout@v3
       with: # Necessário quando habilitado o autores de commit
@@ -26,5 +26,4 @@ jobs:
       id: run-horusec
       uses: fike/horusec-action@v0.2.2
       with:
-        arguments: -p ./ -a ${{ secrets.HORUSEC_API_TOKEN }} -u ${{ secrets.HORUSEC_URL_API }} -e="true" -G="true" #-D=true
-        #arguments: -c=horusec-config.json -p="./" -a ${{ secrets.HORUSEC_API_TOKEN }} -u ${{ secrets.HORUSEC_URL_API }} -e="true" -G="true" -D=true
+        arguments: -p ./ -a ${{ secrets.HORUSEC_API_TOKEN }} -u ${{ secrets.HORUSEC_URL_API }} -e="true" -G="true" -D=false
