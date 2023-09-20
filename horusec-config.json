@@ -34,7 +34,7 @@
   "horusecCliLogFilePath": "/tmp/horusec-2023-09-20-11-09-01.log",
   "horusecCliMonitorRetryInSeconds": 15,
   "horusecCliPrintOutputType": "",
-  "horusecCliProjectPath": "${PWD}juice-shop",
+  "horusecCliProjectPath": "${PWD}/juice-shop",
   "horusecCliRepositoryAuthorization": "00000000-0000-0000-0000-000000000000",
   "horusecCliRepositoryName": "juice-shop",
   "horusecCliReturnErrorIfFoundVulnerability": false,
@@ -45,8 +45,8 @@
   "horusecCliShowVulnerabilitiesTypes": [
     "Vulnerability"
   ],
-  "horusecCliTimeoutInSecondsAnalysis": 600,
-  "horusecCliTimeoutInSecondsRequest": 300,
+  "horusecCliTimeoutInSecondsAnalysis": 1600,
+  "horusecCliTimeoutInSecondsRequest": 1300,
   "horusecCliToolsConfig": {
     "Bandit": {
       "istoignore": false
