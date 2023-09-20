@@ -26,4 +26,4 @@ jobs:
       id: run-horusec
       uses: fike/horusec-action@v0.2.2
       with:
-        arguments: -p ./ -a ${{ secrets.HORUSEC_API_TOKEN }} -u ${{ secrets.HORUSEC_URL_API }} -e="true" -G="true" -D=false
+        arguments: -p ./ -a ${{ secrets.HORUSEC_API_TOKEN }} -u ${{ secrets.HORUSEC_URL_API }} -e="true" -G="true" -t=1600 #-D=false
