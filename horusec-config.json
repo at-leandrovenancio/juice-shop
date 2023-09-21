@@ -16,7 +16,7 @@
     "ruby": "",
     "shell": ""
   },
-  "horusecCliCustomRulesPath": {},
+  "horusecCliCustomRulesPath": "",
   "horusecCliDisableDocker": true,
   "horusecCliEnableCommitAuthor": false,
   "horusecCliEnableGitHistoryAnalysis": false,
