@@ -29,7 +29,7 @@
     "**/.vscode/**"
   ],
   "horusecCliHeaders": {},
-  "horusecCliHorusecApiUri": "http://0.0.0.0/:8000",
+  "horusecCliHorusecApiUri": "${{ secrets.HORUSEC_URL_API }}" ,
   "horusecCliJsonOutputFilepath": "",
   "horusecCliLogFilePath": "./tmp",
   "horusecCliMonitorRetryInSeconds": 15,
