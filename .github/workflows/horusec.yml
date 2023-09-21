@@ -20,4 +20,4 @@ jobs:
         id: run_horusec
         uses: fike/horusec-action@v0.3
         with:
-          arguments: --config-file-path=horusec-config.json -p="./" -a ${{ secrets.HORUSEC_API_TOKEN }} -u ${{ secrets.HORUSEC_URL_API }} --log-level=debug --information-severity=true -e="false"
+          arguments: --config-file-path=horusec-config.json --project-path="./" -a ${{ secrets.HORUSEC_API_TOKEN }} -u ${{ secrets.HORUSEC_URL_API }} --log-level=debug --information-severity=true -e="false"
