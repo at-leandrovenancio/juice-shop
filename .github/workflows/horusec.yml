@@ -18,13 +18,9 @@ jobs:
       uses: actions/checkout@v3
       with: # Necessário quando habilitado o autores de commit
         fetch-depth: 0
-        run: ls -la
 
     - name: Running Horusec Security
-      id: run-horusec
-      uses: fike/horusec-action@v0.2.2
-      with:
-        run: |
-          sudo apt-get update -q
-          sudo apt-get install git -y
-        arguments: -p ./ -a ${{ secrets.HORUSEC_API_TOKEN }} -u ${{ secrets.HORUSEC_URL_API }} -e="true" -G="true" -t=1600 #-D=false
+      run: |
+        curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
+        horusec start  -p ./ -a ${{ secrets.HORUSEC_API_TOKEN }} -u ${{ secrets.HORUSEC_URL_API }} -e="true" -G="true" -t=1600 
+      # -D=false
