@@ -14,11 +14,6 @@ jobs:
     name: horusec-security
     runs-on: ubuntu-latest
     steps:
-    - name: Install Git
-      run: |
-        sudo apt-get update -q
-        sudo apt-get install git ca-certificates curl gnupg -y
-
     - name: Checkout
       uses: actions/checkout@v3
       with: # Necessário quando habilitado o autores de commit
@@ -29,4 +24,7 @@ jobs:
       id: run-horusec
       uses: fike/horusec-action@v0.2.2
       with:
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install git -y
         arguments: -p ./ -a ${{ secrets.HORUSEC_API_TOKEN }} -u ${{ secrets.HORUSEC_URL_API }} -e="true" -G="true" -t=1600 #-D=false
