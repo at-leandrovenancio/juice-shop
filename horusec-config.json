@@ -18,11 +18,11 @@
   },
   "horusecCliCustomRulesPath": "",
   "horusecCliDisableDocker": false,
-  "horusecCliEnableCommitAuthor": true,
-  "horusecCliEnableGitHistoryAnalysis": true,
-  "horusecCliEnableInformationSeverity": true,
-  "horusecCliEnableOwaspDependencyCheck": true,
-  "horusecCliEnableShellcheck": true,
+  "horusecCliEnableCommitAuthor": false,
+  "horusecCliEnableGitHistoryAnalysis": false,
+  "horusecCliEnableInformationSeverity": false,
+  "horusecCliEnableOwaspDependencyCheck": false,
+  "horusecCliEnableShellcheck": false,
   "horusecCliFalsePositiveHashes": null,
   "horusecCliFilesOrPathsToIgnore": [
     "*tmp*",
@@ -31,12 +31,12 @@
   "horusecCliHeaders": {},
   "horusecCliHorusecApiUri": "http://54.175.117.4/:8000",
   "horusecCliJsonOutputFilepath": "",
-  "horusecCliLogFilePath": "/tmp/horusec-2023-09-20-11-09-01.log",
+  "horusecCliLogFilePath": "./tmp",
   "horusecCliMonitorRetryInSeconds": 15,
-  "horusecCliPrintOutputType": "",
-  "horusecCliProjectPath": "${PWD}/juice-shop",
+  "horusecCliPrintOutputType": "text",
+  "horusecCliProjectPath": "./",
   "horusecCliRepositoryAuthorization": "00000000-0000-0000-0000-000000000000",
-  "horusecCliRepositoryName": "juice-shop",
+  "horusecCliRepositoryName": "config",
   "horusecCliReturnErrorIfFoundVulnerability": false,
   "horusecCliRiskAcceptHashes": null,
   "horusecCliSeveritiesToIgnore": [
@@ -45,8 +45,8 @@
   "horusecCliShowVulnerabilitiesTypes": [
     "Vulnerability"
   ],
-  "horusecCliTimeoutInSecondsAnalysis": 1600,
-  "horusecCliTimeoutInSecondsRequest": 1300,
+  "horusecCliTimeoutInSecondsAnalysis": 600,
+  "horusecCliTimeoutInSecondsRequest": 300,
   "horusecCliToolsConfig": {
     "Bandit": {
       "istoignore": false

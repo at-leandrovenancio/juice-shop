@@ -11,14 +11,13 @@ on:
 
 jobs:
   horusec-security:
-    name: horusec-security
-    runs-on: horuszup/horusec-cli:latest
+    runs-on: ubuntu-latest
+    name: Horusec Scan
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      with: # Necessário quando habilitado o autores de commit
-        fetch-depth: 0
+      - uses: actions/checkout@v3
 
-    - name: Running Horusec Security
-      run: |
-        horusec start  -p ./ -a ${{ secrets.HORUSEC_API_TOKEN }} -u ${{ secrets.HORUSEC_URL_API }} -e="true" -G="true" -t=1600 -D=false
+      - name: Run Horusec
+        id: run_horusec
+        uses: fike/horusec-action@v0.2.2
+        with:
+          arguments: -c=horusec-config.json -p ./ -a ${{ secrets.HORUSEC_API_TOKEN }} -u ${{ secrets.HORUSEC_URL_API }} -e="true" -G="true" -t=1600 -D=false
