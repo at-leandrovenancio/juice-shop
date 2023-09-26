@@ -9,15 +9,29 @@ on:
 
   workflow_dispatch:
 
+# jobs:
+#   horusec-security:
+#     runs-on: ubuntu-latest
+#     name: Horusec Scan
+#     steps:
+#       - uses: actions/checkout@v3
+
+#       - name: Run Horusec
+#         id: run_horusec
+#         uses: fike/horusec-action@v0.2.2
+#         with:
+#           arguments: --config-file-path=horusec-config.json --project-path="./" -a ${{ secrets.HORUSEC_API_TOKEN }} -u ${{ secrets.HORUSEC_URL_API }} --log-level=debug --information-severity=true -e="false"
+
+
 jobs:
   horusec-security:
+    name: Horusec Scan Default
     runs-on: ubuntu-latest
-    name: Horusec Scan
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Run Horusec
-        id: run_horusec
-        uses: fike/horusec-action@v0.2.2
-        with:
-          arguments: --config-file-path=horusec-config.json --project-path="./" -a ${{ secrets.HORUSEC_API_TOKEN }} -u ${{ secrets.HORUSEC_URL_API }} --log-level=debug --information-severity=true -e="false"
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Running Horusec Security
+      run: |
+        curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest-beta
+        horusec start --config-file-path=horusec-config.json --project-path="./" -a ${{ secrets.HORUSEC_API_TOKEN }} -u ${{ secrets.HORUSEC_URL_API }} --log-level=debug --information-severity=true -e="false"
+ 
